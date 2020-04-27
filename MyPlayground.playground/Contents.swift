@@ -57,3 +57,19 @@ somaElementos(arr1: [1,2,3,5], arr2: [1,3,4])
 
     //BONUS TODO: Fazer o método acima receber N arrays
 
+func somaNElementos<Element: Comparable>(arrays: [[Element]]) -> Int {
+    var contemEmAmbas = 0
+    for i in 0..<arrays.count {
+        if arrays[i] != arrays.last {
+            for elemento in arrays[i] {
+                if arrays[i+1].contains(elemento) {
+                    contemEmAmbas += 1
+                }
+            }
+        }
+    }
+    
+    return contemEmAmbas
+}
+
+somaNElementos(arrays: [[1,2,3,4],[1,2,3],[5,6]])
